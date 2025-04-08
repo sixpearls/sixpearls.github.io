@@ -1,0 +1,91 @@
+/* 
+Vertical Rhythm sheet.
+created by Ben Margolis
+www.sixpearls.com
+
+Copyright (c) 2013, Ben Margolis
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+- Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+- Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+@body_font_size:16; //font-size in pixels
+@body_line_height:1.6; //line-height factor
+@lambda_px: 0px + (@body_font_size*@body_line_height); //line-height in pixels
+
+//fonts in EM.
+@factor_h0:6;
+@factor_h1:3;
+@factor_h2:2;
+@factor_h3:1.5;
+@factor_h4:1.25;
+@factor_p:1;
+@factor_small:0.75;
+@factor_zero:0;
+
+//mixins for padding and size
+//mixins for padding and size
+.padding (@size,  @multiplier: 0.5, @spacingfactor: 3) {
+	@compute: (@multiplier*((2 * (@size*@body_font_size*@body_line_height)) + (ceil(@spacingfactor*@size)*@lambda_px)-(@size*@lambda_px*@spacingfactor))/(@size*@body_font_size));
+	@rounded: `parseFloat(parseFloat("@{compute}").toFixed(3))`;
+	padding-top: 0em + @rounded;
+	padding-bottom: 0em + @rounded;
+}
+
+.set_size (@size) {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 0em + @size;
+}
+
+.set_size (@size) {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 0em + @size;
+}
+//assign font-size in percent to be consistent. maybe should add IE fix?
+//assign line-height as multiplier, from misc best practice articles.
+body {
+	font-size: (@body_font_size/16)*100%;
+	line-height: @body_line_height;
+}
+
+//use mixins for basic elements to make 
+h1 {
+    .set_size(@factor_h1);
+    .padding(@factor_h1,0.25);
+}
+
+h2, article header h2, article h1 {
+	.set_size(@factor_h2);
+	.padding(@factor_p, 0.125);
+}
+h3, article header h3, article h2 {
+	.set_size(@factor_h3);
+	.padding(@factor_h4, 0.125);
+}
+h4, article header h4, article h3 {
+	.set_size(@factor_h4);
+	//.padding(@factor_h4);
+}
+
+p {
+	.set_size(@factor_p);
+	.padding(@factor_small,0.125);
+}
+
+blockquote, h5, h6, iframe, label, pre, address, td, th, ul, ol, dl, dd, hr,
+table {
+	.set_size(@factor_p);
+	.padding(@factor_p);
+}
+
+small {
+	.set_size(@factor_small);
+	.padding(@factor_small);
+}

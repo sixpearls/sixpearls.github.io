@@ -1,0 +1,116 @@
+/* =============================================================================
+   Media Queries
+   ========================================================================== */ 
+
+@media only screen and (min-width: @gridsystem-width) {
+
+  #title{
+    .column(8);
+  }
+
+  #main article {
+  width: @gridsystem-width - @gutter-width;
+  padding: @lambda_px 0;
+  margin: 0 auto;
+  display: block;
+  float: none;
+
+    header {
+        h2 {
+            //text-align: center;
+        }
+        cite.date {
+          position: absolute;
+          right: 0;
+          bottom: 2em;
+        }
+    }
+
+    ul.massmedia.collection {
+
+      li {
+        .row();
+        img { width: 100%; }
+      }
+
+      &.column1 > li {
+        .column(12,100%);
+      }
+
+      &.column2 > li {
+        .column(6,100%);
+        &:nth-child(2n+1) { clear: left; }
+      }
+
+      &.column3 > li {
+        .column(4,100%);
+        &:nth-child(3n+1) { clear: left;}
+      }
+
+    }
+  }
+
+/* ====================
+    INTERMEDIATE: Menu
+   ==================== */
+
+header nav { //display: inline-block; width: 50%;
+  .column(4); .set_size(@factor_h1); //.padding(6,0.25,10);
+
+  ul {
+      border-bottom: 2px solid @secondary_a;
+      display: inline-block;
+      margin-top: 9px;
+      //float: right;
+      clear: both; font-size: 0px + @body_font_size;
+
+      li {
+          display: inline-block;
+          padding-left: 1em;
+          padding-right: 1em;
+          &:first-child { padding-left: 2em; }
+          &:last-child { padding-right: 2em; }
+
+            &.selected_item a, &.selected_item a {
+                color: @primary;
+            }
+
+            a {
+              display:block;
+              text-align:center;
+              .set_size(@factor_p);
+
+                &, &:visited {
+                  color: @secondary_a;
+                }
+
+                &:hover {
+                  color:@complementary;
+                }
+            }
+      }
+  }
+}
+
+/*****************
+Basic sub-menu styles
+Makes submenus appear on hover
+Select from jQuery is hidden
+*****************/
+
+nav {
+    select { display: none; }
+    ul li {
+        position: relative;
+        ul { display: none; position: absolute; left:0; top:1em;}
+        &:hover ul, &.over ul {
+          display: block;
+        }
+    }
+}
+
+
+/* ========================
+    INTERMEDIATE: IE Fixes
+   ======================== */
+}

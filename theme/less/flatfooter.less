@@ -1,0 +1,24 @@
+/***********************
+Flat footer
+***********************/
+html {
+    height: 100%;
+
+    @footer-height: 9em;
+
+    body {
+        position: relative;
+        min-height: 100%;
+
+          #main-container {
+            padding-bottom: @footer-height;
+          }
+
+          #footer-container {
+              height: @footer-height;
+              width: 100%;
+              position: absolute;
+              bottom: 0px;
+          }
+    }
+}

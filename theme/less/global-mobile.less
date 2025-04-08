@@ -1,0 +1,178 @@
+html { overflow: -moz-scrollbars-vertical; overflow-y: scroll; }
+body{ font: Helvetica, Helvetica Neue, Arial; color: @text_color; }
+
+@header_container_bg: #e8e8e8;
+#header-container{ 
+	header {
+		text-align: center;
+	}
+
+	& header, #main {
+		max-width: 960px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+#footer-container{
+	border-top:    1px solid black;
+	text-align: center; 
+	background: @secondary_gray;
+}
+
+#title {
+	/*.column(12,100%); */
+	.column(12,100%); 
+	text-align: center;
+	.set_size(@factor_h2);
+	.padding(6,0.25,10);
+	padding-bottom: 0px;
+
+    a {
+        text-decoration: none;
+        color: @primary;
+        text-decoration:none;
+    }
+    a:hover { color: @complementary; }
+}
+
+/* ===============
+    article typography
+    ============== */
+
+#main-container{
+    overflow: hidden; 
+    article {
+        .column(12,100%);
+        padding: @lambda_px 0;
+
+        iframe {
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        figure { text-align: center; 
+
+            &.left { float: left; margin-right: 2em;}
+            &.right { float: right; margin-left: 2em; }
+
+        }
+        figcaption {
+            margin: 0.5em; 
+        }
+
+        header {
+            .padding(1,0.125);
+            position: relative;
+
+            a {
+                text-decoration: none;
+                color: @complementary;
+                text-decoration:none;
+            }
+        }
+
+        ul.massmedia.collection {
+        width: 100%;
+            li {
+                padding: @lambda_px/2 0;
+                .column(12,100%);
+                img { width: 100%; }
+            }
+            & + p {
+                clear: left;
+            }
+        }
+
+
+        nav {
+            font-size: 1em;
+            //width: 100%;
+            display: inline-block;
+            margin: 1em;
+            float: none;
+            a {
+                display: inline-block;
+                color: @complementary;
+                text-decoration:none;
+
+                &:hover {
+                    color: @secondary_b;
+                }
+                &.next { float: left; position: relative; left: 1em;}
+                &.previous { float: right; position: relative; right: 1em;}
+            }
+        }
+    }
+}
+
+a {
+	&, &:visited {
+		color: @complementary;
+		text-decoration:none;
+	}
+
+	&:hover {
+		color: @secondary_b;
+	}
+}
+
+blockquote {
+    margin-left: 4em;
+    margin-right: 4em;
+    padding-left: 2em;
+    padding-right: 2em;
+    position: relative;
+    // p {
+    //     .padding(@factor_small,0.25);
+    // }
+
+    &:before, &:after {
+        display: block;
+        height: 0;
+        font-size: 400%/1;
+        font-style: normal;
+        font-family: Georgia,"Times New Roman", serif;
+        color: @primary; //fadeout(@primary,20%);
+        position: absolute;
+    }
+
+    &:before {
+        content: "\201C";
+        top: 0; left: -0.0625em ;
+    }
+    &:after {
+        content: "\201D";
+        bottom: 1.25em; right: 0 ;
+    }
+}
+
+/* ==============
+    MOBILE: Menu
+
+    Hide UL, show select
+   ============== */
+
+nav {
+	ul {
+		display: none; 
+	}
+	select { margin: 1em; }
+}
+
+/* ==============
+    MOBILE: Main
+   ============== */
+
+#footer-container footer{
+	padding-bottom: 2*@lambda_px;
+	padding-top: 0.5*@lambda_px;
+	.set_size(0.75);
+}
+
+/* ===============
+    ALL: IE Fixes
+   =============== */
+
+.ie7 #title{ padding-top:@lambda_px; }

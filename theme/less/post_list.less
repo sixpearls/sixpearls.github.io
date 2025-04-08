@@ -1,0 +1,48 @@
+#post-list {
+    list-style: none; list-style-image: none; padding: 0;
+
+    li {
+        //margin: 1em;
+        .padding(1,0.25,1);
+
+        &:first-child {
+            padding-top: 0px;
+        }
+
+        &:last-child {
+            padding-bottom: 0px;
+        }
+
+        img.featured-image {
+            float: left;
+            padding: 1em;
+        }
+
+         header {
+            padding: 0;
+
+            .post-title {
+                padding-bottom: 0px;
+                .padding(1,0.5,10);
+            }
+
+            cite.date {
+                top: 0;
+                .padding(1,0.25,1)
+            }
+        }
+
+        a, a:visited {
+            padding-left: 1em;
+            padding-right: 1em;
+            .padding(1,0.5,1);
+            color: @text_color;
+            background-color: none;
+            display:block;
+        }
+
+        a:hover {
+            background-color: @secondary_gray;
+        }
+    }
+}
