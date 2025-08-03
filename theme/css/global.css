@@ -375,6 +375,8 @@ body {
   background: #eeeeee;
 }
 #title {
+  /*.column(12,100%); */
+
   display: inline;
   float: left;
   width: 97.91666666666666%;
@@ -382,10 +384,17 @@ body {
   text-align: center;
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 3em;
+  font-size: 2em;
   padding-top: 0.8em;
   padding-bottom: 0.8em;
   padding-bottom: 0px;
+}
+#title a {
+  color: #000080;
+  text-decoration: none;
+}
+#title a:hover {
+  color: #ff7e40;
 }
 /* ===============
     article typography
@@ -446,7 +455,6 @@ body {
 }
 #main-container article nav {
   font-size: 1em;
-  width: 100%;
   display: inline-block;
   margin: 1em;
   float: none;
@@ -556,7 +564,7 @@ html body #footer-container {
   #title {
     display: inline;
     float: left;
-    width: 300px;
+    width: 620px;
     margin: 0 10px;
   }
   #main article {
@@ -565,6 +573,9 @@ html body #footer-container {
     margin: 0 auto;
     display: block;
     float: none;
+  }
+  #main article header {
+    display: none;
   }
   #main article header cite.date {
     position: absolute;
@@ -615,22 +626,22 @@ html body #footer-container {
   /* ====================
       INTERMEDIATE: Menu
      ==================== */
+  header {
+    display: block;
+  }
   header nav {
     display: inline;
     float: left;
-    width: 620px;
+    width: 300px;
     margin: 0 10px;
     margin-top: 0;
     margin-bottom: 0;
     font-size: 3em;
-    padding-top: 0.8em;
-    padding-bottom: 0.8em;
   }
   header nav ul {
     border-bottom: 2px solid #b3b3b3;
     display: inline-block;
     margin-top: 9px;
-    float: right;
     clear: both;
     font-size: 16px;
   }
@@ -659,6 +670,10 @@ html body #footer-container {
   header nav ul li a,
   header nav ul li a:visited {
     color: #b3b3b3;
+  }
+  header nav ul li a[aria-current="page"],
+  header nav ul li a:visited[aria-current="page"] {
+    color: #000080;
   }
   header nav ul li a:hover {
     color: #ff7e40;

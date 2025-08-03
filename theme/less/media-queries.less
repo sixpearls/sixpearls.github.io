@@ -16,6 +16,7 @@
   float: none;
 
     header {
+        display: none;
         h2 {
             //text-align: center;
         }
@@ -54,42 +55,51 @@
     INTERMEDIATE: Menu
    ==================== */
 
-header nav { //display: inline-block; width: 50%;
-  .column(4); .set_size(@factor_h1); //.padding(6,0.25,10);
+header {
+    display: block;
 
-  ul {
-      border-bottom: 2px solid @secondary_a;
-      display: inline-block;
-      margin-top: 9px;
-      //float: right;
-      clear: both; font-size: 0px + @body_font_size;
+    nav { //display: inline-block; width: 50%;
+      .column(4); .set_size(@factor_h1); //.padding(6,0.25,10);
 
-      li {
+      ul {
+          border-bottom: 2px solid @secondary_a;
           display: inline-block;
-          padding-left: 1em;
-          padding-right: 1em;
-          &:first-child { padding-left: 2em; }
-          &:last-child { padding-right: 2em; }
+          margin-top: 9px;
+          //float: right;
+          clear: both; font-size: 0px + @body_font_size;
 
-            &.selected_item a, &.selected_item a {
-                color: @primary;
-            }
+          li {
+              display: inline-block;
+              padding-left: 1em;
+              padding-right: 1em;
+              &:first-child { padding-left: 2em; }
+              &:last-child { padding-right: 2em; }
 
-            a {
-              display:block;
-              text-align:center;
-              .set_size(@factor_p);
-
-                &, &:visited {
-                  color: @secondary_a;
+                &.selected_item a, &.selected_item a {
+                    color: @primary;
                 }
 
-                &:hover {
-                  color:@complementary;
+                a {
+                  display:block;
+                  text-align:center;
+                  .set_size(@factor_p);
+
+
+                    &, &:visited {
+                      color: @secondary_a;
+
+                      &[aria-current="page"] {
+                          color: @primary;
+                      }
+                    }
+
+                    &:hover {
+                      color:@complementary;
+                    }
                 }
-            }
+          }
       }
-  }
+    }
 }
 
 /*****************
